@@ -2,6 +2,7 @@
 import * as esbuild from 'esbuild';
 import { build } from '@unocss/cli';
 import { consola } from "consola";  // it just comes with @unocss/cli, so why not use it
+import fs from 'fs';
 
 function copyNeededFiles() {
     // copy needed files to the dist folder
@@ -70,17 +71,40 @@ if (operation == 'dev') {
     consola.info(`Serving on http://localhost:${port}`);
 
 } else if (operation == 'release') {
-    esbuild.build({
-        entryPoints: ['packages/web-core/entry.ts'],
+
+    await build({
+        config: "unocss.config.ts",
+        outFile: "./devtemp/uno.css",
+        patterns: [
+            "packages/web-core/**/*.html",
+            "packages/web-core/**/*.ts",
+            "packages/web-core/**/*.tsx",
+        ],
+    })
+
+    await esbuild.build({
+        entryPoints: [
+            'packages/web-core/index.html',
+            'packages/web-core/entry.ts',
+        ],
         bundle: true,
         outdir: 'dist',
         format: 'esm',
-        sourcemap: false,
         minify: true,
         loader: {
             ".tsx": "tsx",
+            ".html": "copy",
+            ".css": "css"
         },
-        plugins: []
+        plugins: [],
     });
-    copyNeededFiles();
+
 }
+
+process.on('SIGINT', () => {
+    fs.unlink("devtemp/uno.css", (err) => {
+        if (err) throw err;
+    });
+    consola.log('Temp file cleaned.');
+    process.exit();
+});
