@@ -1,0 +1,22 @@
+{
+  "name": "tanim",
+  "packageName": "org.nyagame.tanim",
+  "version": "0.0.1",
+  "description": "A JavaScript-based frame-by-frame animation tool.",
+  "scripts": {
+    "run": "build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tungstools/tanim.git"
+  },
+  "author": "Tung Leen<tnl@nyagame.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tungstools/tanim/issues"
+  },
+  "homepage": "https://github.com/tungstools/tanim#readme",
+  "devDependencies": {
+    "esbuild": "^0.20"
+  }
+}
