@@ -1,10 +1,14 @@
 {
   "name": "tanim",
   "packageName": "org.nyagame.tanim",
+  "workspaces": [
+    "packages/*"
+  ],
   "version": "0.0.1",
   "description": "A JavaScript-based frame-by-frame animation tool.",
   "scripts": {
-    "run": "build.js"
+    "dev": "node ./scripts/build.mjs dev",
+    "release": "node ./scripts/build.mjs release"
   },
   "repository": {
     "type": "git",
@@ -17,6 +21,7 @@
   },
   "homepage": "https://github.com/tungstools/tanim#readme",
   "devDependencies": {
-    "esbuild": "^0.20"
+    "esbuild": "^0.20",
+    "@unocss/cli": "^0.58.6"
   }
 }

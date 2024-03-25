@@ -1,1 +1,4 @@
 node_modules
+dist
+/devtemp/*
+!/devtemp/.gitkeep

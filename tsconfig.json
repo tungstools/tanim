@@ -1,0 +1,11 @@
+ {
+    "compilerOptions": {
+        "jsx": "react",
+        "paths": {
+            "@/dom-operation": ["./packages/dom-operation"],
+            "@/web-core": ["./packages/web-core"],
+            "@/canvas": ["./packages/canvas/canvas.ts"],
+            "uno.css": ["./devtemp/uno.css"],
+        }
+    }
+ }

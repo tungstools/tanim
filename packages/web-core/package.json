@@ -1,0 +1,10 @@
+{
+    "name": "@tanim/web-core",
+    "version": "0.0.1",
+    "main": "entry.ts",
+    "dependencies": {
+        "@tanim/canvas": "0.0.1",
+        "@tanim/dom-operation": "0.0.1",
+        "@vue/reactivity": "^3.4.21"
+    }
+}
