@@ -1,6 +1,6 @@
 
 import * as esbuild from 'esbuild';
-import { build } from '@unocss/cli';
+import { build as unoBuild } from '@unocss/cli';
 import { consola } from "consola";  // it just comes with @unocss/cli, so why not use it
 import fs from 'fs';
 
@@ -11,12 +11,10 @@ function copyNeededFiles() {
 const operation = process.argv[2] ?? 'dev';
 
 if (operation == 'dev') {
-    await build({
+    await unoBuild({
         config: "unocss.config.ts",
         outFile: "./devtemp/uno.css",
         patterns: [
-            "packages/web-core/**/*.html",
-            "packages/web-core/**/*.ts",
             "packages/web-core/**/*.tsx",
         ],
         watch: true
@@ -72,7 +70,7 @@ if (operation == 'dev') {
 
 } else if (operation == 'release') {
 
-    await build({
+    await unoBuild({
         config: "unocss.config.ts",
         outFile: "./devtemp/uno.css",
         patterns: [
@@ -91,6 +89,7 @@ if (operation == 'dev') {
         outdir: 'dist',
         format: 'esm',
         minify: true,
+        keepNames: true,
         loader: {
             ".tsx": "tsx",
             ".html": "copy",
