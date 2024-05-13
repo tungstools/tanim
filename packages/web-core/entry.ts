@@ -1,5 +1,20 @@
 
-import { createCanvas } from "@/canvas";
+import { createCanvas } from "~canvas";
 import 'uno.css';
 
-console.log("Testing esbuild fine");
+function init() {
+
+}
+
+function mountInterface() {
+
+}
+
+function checkBrowserCompatibility() {
+}
+
+(() => {
+    init();
+    document.querySelector("body").innerText = "hello";
+    mountInterface();
+})();
