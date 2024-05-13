@@ -1,10 +1,13 @@
  {
     "compilerOptions": {
         "jsx": "react",
+        "target": "ESNext",
+        "jsxFactory": "createElement",
+        "jsxFragmentFactory": "createFragment",
         "paths": {
-            "@/dom-operation": ["./packages/dom-operation"],
-            "@/web-core": ["./packages/web-core"],
-            "@/canvas": ["./packages/canvas/canvas.ts"],
+            "~dom-operation": ["./packages/dom-operation/dom_operation.ts"],
+            "~web-core": ["./packages/web-core/entry.ts"],
+            "~canvas": ["./packages/canvas/canvas.ts"],
             "uno.css": ["./devtemp/uno.css"],
         }
     }

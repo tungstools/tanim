@@ -1,5 +1,4 @@
 {
     "name": "@tanim/canvas",
-    "version": "0.0.1",
-    "main": "canvas.js"
+    "version": "0.0.1"
 }
